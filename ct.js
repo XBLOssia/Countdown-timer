@@ -17,14 +17,14 @@ var x = setInterval(function() {
     var per7 = [13,48,00];
     var per8 = [14,41,00];
 
-    per1secs = (per1[0]*60*60)+(per1[1]*60)+(per1[2]);
-    per2secs = (per2[0]*60*60)+(per2[1]*60)+(per2[2]);
-    per3secs = (per3[0]*60*60)+(per3[1]*60)+(per3[2]);
-    per4secs = (per4[0]*60*60)+(per4[1]*60)+(per4[2]);
-    per5secs = (per5[0]*60*60)+(per5[1]*60)+(per5[2]);
-    per6secs = (per6[0]*60*60)+(per6[1]*60)+(per6[2]);
-    per7secs = (per7[0]*60*60)+(per7[1]*60)+(per7[2]);
-    per8secs = (per8[0]*60*60)+(per8[1]*60)+(per8[2]);
+    var per1secs = (per1[0]*60*60)+(per1[1]*60)+(per1[2]);
+    var per2secs = (per2[0]*60*60)+(per2[1]*60)+(per2[2]);
+    var per3secs = (per3[0]*60*60)+(per3[1]*60)+(per3[2]);
+    var per4secs = (per4[0]*60*60)+(per4[1]*60)+(per4[2]);
+    var per5secs = (per5[0]*60*60)+(per5[1]*60)+(per5[2]);
+    var per6secs = (per6[0]*60*60)+(per6[1]*60)+(per6[2]);
+    var per7secs = (per7[0]*60*60)+(per7[1]*60)+(per7[2]);
+    var per8secs = (per8[0]*60*60)+(per8[1]*60)+(per8[2]);
 
     //debug var below
     donesecs = (60000);

@@ -8,6 +8,9 @@ var x = setInterval(function() {
     var mymin = current.getMinutes()+(myhour*60);
     var mytime = current.getSeconds()+(mymin*60);
 
+
+    // Periods can be added or removed by adding or removing variables and child threads
+    // Time format : [HH,MM,SS]
     var per1 = [08,30,00];
     var per2 = [09,23,00];
     var per3 = [10,16,00];
@@ -17,6 +20,7 @@ var x = setInterval(function() {
     var per7 = [13,48,00];
     var per8 = [14,41,00];
 
+    //Convert time arrays above to seconds
     var per1secs = (per1[0]*60*60)+(per1[1]*60)+(per1[2]);
     var per2secs = (per2[0]*60*60)+(per2[1]*60)+(per2[2]);
     var per3secs = (per3[0]*60*60)+(per3[1]*60)+(per3[2]);
@@ -29,9 +33,8 @@ var x = setInterval(function() {
     //debug var below
     donesecs = (60000);
 
-    console.log(per8secs);
-
-    console.log(mytime)
+    //Evaluate current seconds in day with values derived above, subtract time left in day from timer value - looks like I did this backwards, which explains why I had to use math.abs
+    //TODO: test and fix that
     if (mytime <= per1secs) {
         var mycount = Math.abs(mytime - per1secs);
     }
@@ -60,12 +63,16 @@ var x = setInterval(function() {
         console.log('dayover');
         var mycount = Math.abs(mytime - donesecs);
     }
+
+    // Take the value and divide it into minutes and seconds
     var myminutes = Math.floor(mycount / (60));
     var myseconds = Math.floor(mycount - (myminutes*60));
 
+    //Display result on page
     document.getElementById("minute").innerHTML = myminutes;  
     document.getElementById("second").innerHTML = myseconds; 
 
+    //After all countdowns are done, the time should read 0 mins 0 secs - happens sometime after the debug time elapses
     if ((mytime - donesecs) > 0) {
         clearInterval(x);
 

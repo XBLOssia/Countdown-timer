@@ -1,7 +1,3 @@
-var deadline = new Date("dec 25, 2020 15:00:00").getTime();
-
-
-    
 var x = setInterval(function() { 
     var current = new Date();
     var myhour = current.getHours();

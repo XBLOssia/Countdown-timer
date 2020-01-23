@@ -1,3 +1,5 @@
+var myminutes = 666;
+
 var x = setInterval(function() { 
     var current = new Date();
     var myhour = current.getHours();
@@ -6,7 +8,7 @@ var x = setInterval(function() {
 
 
     // Periods can be added or removed by adding or removing variables and child threads
-    // Time format : [HH,MM,SS]
+    // Time format : [hh,mm,ss]
     var per1 = [08,30,00];
     var per2 = [09,23,00];
     var per3 = [10,16,00];
@@ -61,7 +63,7 @@ var x = setInterval(function() {
     }
 
     // Take the value and divide it into minutes and seconds
-    var myminutes = Math.floor(mycount / (60));
+    myminutes = Math.floor(mycount / (60));
     var myseconds = Math.floor(mycount - (myminutes*60));
 
     //Display result on page
@@ -75,4 +77,16 @@ var x = setInterval(function() {
         document.getElementById('minute').innerHTML = '0';
         document.getElementById('second').innerHTML = '0';
     }
-}, 1000);
+
+}, 500);
+
+var y = setInterval(function() {
+    if (myminutes < 2) {
+        document.body.style.background = 'red';
+        document.body.style.animationName = 'color';
+    }
+    else {
+        document.body.style.background = 'black';
+        document.body.style.animationName = 'none';
+    }
+}, 2000);

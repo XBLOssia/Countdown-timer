@@ -2,7 +2,22 @@ body {
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
     color: aliceblue;
+    animation-name: none;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
+
+@keyframes color {
+    0% {
+      background-color: #222;
+    }
+    50% {
+      background-color: red;
+    }
+    100% {
+      background-color: #222;
+    }
+  }
 
 .container {
     min-width: 1600px;

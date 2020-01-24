@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Countdown Clock V2</title>
+        <link rel="stylesheet" href="./clockv2.css">
+        <script type="text/javascript" src="ct.js"></script>
+    </head>
+    <body>
+        <div class='parent'>
+            
+            <div class='topspace'></div>
+            
+            
+            <div class='frame'>
+             <div class='spacer'></div>
+             <div class='heading'>
+                 COUNTDOWN TO
+             </div>
+             <div class='period' id='per' onload='makeTitle();'>
+                 Loading
+             </div>
+             <div class='spacer'></div>
+             <div class='horizsep'>
+             </div>
+             <div id='clockdiv'>
+                <div id="dayz" style='display:none;'>
+                    <span class="days" id="day"></span><span class='spc'>:</span>
+                </div>
+                <div id="hourz" style='display:none;'>
+                    <span class="hours" id="hour"></span><span class='spc'>:</span class='spc'>
+                </div>
+                <div id="minutez">
+                    <span class="minutes" id="minute"></span><span class='spc'>:</span>
+                </div>
+                <div id="secondz">
+                    <span class='seconds' id='second'></span>
+                </div>
+             </div>
+            </div>
+            <div class='footspace'></div>
+            <div class='footer'>
+                <div class='logo'>
+                    logo
+                </div>
+                <div class='foottext'>
+                    footer text
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+body {
+    background-color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    color: antiquewhite;
+    animation-name: none;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes color {
+    0% {
+        background-color: black;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 15vw 70vw 15vw;
+    padding: 10px;
+}
+
+.frame {
+    background-color: #333333;
+    height: 50vh;
+    border: 7px solid #FC5000;
+    border-radius: 40px;
+    padding: 10px;
+    text-align: center;
+    grid-column: 2 / 3 ;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 30vh 20vh;
+    grid-gap: 0px;
+}
+
+.topspace {
+    height: 15vh;
+    grid-area: 1 / 1 / span 1 / span 3;
+}
+
+.spacer {
+}
+
+.heading {
+    border: 5px solid #FC5000;
+    border-radius: 3vh;
+    background-color: #FC5000;
+    grid-area: 1 / 2 / span 1 / span 1 ;
+    margin-top: -2.25vw;
+    height: 1.25em;
+    padding: 5px;
+    font-size: 3vh;
+    letter-spacing: .85vw;
+}
+
+.horizsep {
+    max-height: 0vh;
+    border: .45vh solid #FC5000;
+    border-radius: 15vh;
+    padding: -1vh;
+    grid-area: 2 / 2 / span 1 / span 1 ;
+    margin-top: -2vh;
+}
+
+.period {
+    grid-area: 1 / 2 / span 1 / span 1 ;
+    margin-top: 5vh;
+    max-height: 15vh;
+    margin-bottom: 2vh;
+    font-size: 10vh;
+    padding: 5px;
+}
+
+#clockdiv {
+    grid-area: 2 / 1 / span 1 / span 3 ;
+    padding-top: 5vh;
+    font-size: 8vh;
+}
+
+#clockdiv > div{
+    padding: 0px;
+    border: none;
+    display: inline-flex;
+}
+
+#clockdiv div > .spc {
+    padding: 0px 0px 0px 1.25vw;
+}
+
+#clockdiv div > span{
+    padding: 0px;
+    display: inline-flex;
+}
+
+.footspace {
+    grid-area: 3 / 1 / span 1 / span 3;
+    height: 10vh;
+}
+
+.footer {
+    grid-area: 4 / 2 / span 1 / span 1;
+    display: grid;
+    grid-template-columns: 20vw 30vw ;
+}

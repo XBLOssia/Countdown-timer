@@ -1,22 +1,22 @@
-var myminutes = 666;
+var myminutes = 1000;
+var periodname = 'Loading';
+
+    // Periods can be added or removed by adding or removing variables and child threads
+    // Time format : [hh,mm,ss,'period name/number']
+    var per1 = [08,30,00,'Period 1'];
+    var per2 = [09,23,00,'Period 2'];
+    var per3 = [10,16,00,'Period 3'];
+    var per4 = [11,09,00,'Period 4'];
+    var per5 = [12,02,00,'Period 5'];
+    var per6 = [12,55,00,'Period 6'];
+    var per7 = [13,48,00,'Period 7'];
+    var per8 = [14,41,00,'Period 8'];
 
 var x = setInterval(function() { 
     var current = new Date();
     var myhour = current.getHours();
     var mymin = current.getMinutes()+(myhour*60);
     var mytime = current.getSeconds()+(mymin*60);
-
-
-    // Periods can be added or removed by adding or removing variables and child threads
-    // Time format : [hh,mm,ss]
-    var per1 = [08,30,00];
-    var per2 = [09,23,00];
-    var per3 = [10,16,00];
-    var per4 = [11,09,00];
-    var per5 = [12,02,00];
-    var per6 = [12,55,00];
-    var per7 = [13,48,00];
-    var per8 = [14,41,00];
 
     //Convert time arrays above to seconds
     var per1secs = (per1[0]*60*60)+(per1[1]*60)+(per1[2]);
@@ -34,37 +34,57 @@ var x = setInterval(function() {
     //Evaluate current seconds in day with values derived above, subtract time left in day from timer value - looks like I did this backwards, which explains why I had to use math.abs
     //TODO: test and fix that
     if (mytime <= per1secs) {
-        var mycount = Math.abs(mytime - per1secs);
+        var mycount = (per1secs - mytime);
+        periodname = per1[3];
     }
     else if (mytime <= per2secs) {
-        var mycount = Math.abs(mytime - per2secs);
+        var mycount = (per2secs - mytime);
+        periodname = per2[3];
     }
     else if (mytime <= per3secs) {
-        var mycount = Math.abs(mytime - per3secs);
+        var mycount = (per3secs - mytime);
+        periodname = per3[3];
     }
     else if (mytime <= per4secs) {
-        var mycount = Math.abs(mytime - per4secs);
+        var mycount = (per4secs - mytime);
+        periodname = per4[3];
     }
     else if (mytime <= per5secs) {
-        var mycount = Math.abs(mytime - per5secs);
+        var mycount = (per5secs - mytime);
+        periodname = per5[3];
     }
     else if (mytime <= per6secs) {
-        var mycount = Math.abs(mytime - per6secs);
+        var mycount = (per6secs - mytime);
+        periodname = per6[3];
     }
     else if (mytime <= per7secs) {
-        var mycount = Math.abs(mytime - per7secs);
+        var mycount = (per7secs - mytime);
+        periodname = per7[3];
     }
     else if (mytime <= per8secs) {
-        var mycount = Math.abs(mytime - per8secs);
+        var mycount = (per8secs - mytime);
+        periodname = per8[3];
     }
     else {
-        console.log('dayover');
-        var mycount = Math.abs(mytime - donesecs);
+        var mycount = (donesecs - mytime);
+        periodname = 'Nothing';
     }
 
     // Take the value and divide it into minutes and seconds
-    myminutes = Math.floor(mycount / (60));
-    var myseconds = Math.floor(mycount - (myminutes*60));
+    var rawminutes = Math.floor(mycount / (60));
+    var rawseconds = Math.floor(mycount - (rawminutes*60));
+
+    function pad(value) {
+        if (value < 10) {
+            return '0' + value;
+        }
+        else {
+            return value;
+        }
+    }
+
+    myminutes = pad(rawminutes);
+    myseconds = pad(rawseconds);
 
     //Display result on page
     document.getElementById("minute").innerHTML = myminutes;  
@@ -72,15 +92,16 @@ var x = setInterval(function() {
 
     //After all countdowns are done, the time should read 0 mins 0 secs - happens sometime after the debug time elapses
     if ((mytime - donesecs) > 0) {
-        clearInterval(x);
-
         document.getElementById('minute').innerHTML = '0';
         document.getElementById('second').innerHTML = '0';
     }
 
+    document.getElementById('per').innerHTML = periodname;
+
 }, 500);
 
 var y = setInterval(function() {
+    
     if (myminutes < 2) {
         document.body.style.background = 'red';
         document.body.style.animationName = 'color';
@@ -90,3 +111,8 @@ var y = setInterval(function() {
         document.body.style.animationName = 'none';
     }
 }, 2000);
+
+
+
+
+

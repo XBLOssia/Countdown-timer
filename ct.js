@@ -1,3 +1,8 @@
+//NOTE: This version of the countdown clock does not support different schedules for different days
+//      This countdown only supports counting down to specific times in the day.
+//      In other words, it can only recognize times before the nearest 23:59:59
+//      In the future I'll write a version for specific dates that looks the same as this.
+
 var mycount = 1000;
 var periodname = 'Loading';
 
@@ -14,6 +19,7 @@ var periodname = 'Loading';
 
 var x = setInterval(function() { 
     var current = new Date();
+    
     var myhour = current.getHours();
     var mymin = current.getMinutes()+(myhour*60);
     var mytime = current.getSeconds()+(mymin*60);
@@ -29,7 +35,7 @@ var x = setInterval(function() {
     var per8secs = (per8[0]*60*60)+(per8[1]*60)+(per8[2]);
 
     //debug var below
-    donesecs = (60000);
+    donesecs = (60300); //4:45
 
     //Evaluate current seconds in day with values derived above, subtract time left in day from timer value - looks like I did this backwards, which explains why I had to use math.abs
     //TODO: test and fix that
@@ -67,12 +73,18 @@ var x = setInterval(function() {
     }
     else {
         mycount = (donesecs - mytime);
-        periodname = 'Nothing';
+        periodname = "Doc clocks out";
     }
-
+    
     // Take the value and divide it into minutes and seconds
-    var rawminutes = Math.floor(mycount / (60));
-    var rawseconds = Math.floor(mycount - (rawminutes*60));
+    var rawseconds = Math.floor( (mycount) % 60 );
+    var rawminutes = Math.floor( (mycount/60) % 60 );
+    var rawhours = Math.floor( (mycount/(60*60)) % 24);
+    var rawdays = Math.floor( mycount/(60*60*24) );
+    
+    /*var rawminutes = Math.floor(mycount / (60));
+    var rawseconds = Math.floor(mycount - (rawminutes*60));*/
+
 
     function pad(value) {
         if (value < 10) {
@@ -85,15 +97,31 @@ var x = setInterval(function() {
 
     myminutes = pad(rawminutes);
     myseconds = pad(rawseconds);
-
+    myhours = pad(rawhours);
+    mydays = pad(rawdays);
+    
     //Display result on page
     document.getElementById("minute").innerHTML = myminutes;  
     document.getElementById("second").innerHTML = myseconds; 
+    document.getElementById("hour").innerHTML = myhours;
+    document.getElementById("day").innerHTML = mydays;
 
     //After all countdowns are done, the time should read 0 mins 0 secs - happens sometime after the debug time elapses
     if ((mytime - donesecs) > 0) {
         document.getElementById('minute').innerHTML = '0';
         document.getElementById('second').innerHTML = '0';
+    }
+
+    if (myhours > 0) {
+        document.getElementById('hourz').style = "display:inline;";
+    } else {
+        document.getElementById('hourz').style = "display:none;";
+    }
+
+    if (mydays > 0) {
+        document.getElementById('dayz').style = "display:inline;";
+    } else {
+        document.getElementById('dayz').style = "display:none;";
     }
 
     document.getElementById('per').innerHTML = periodname;

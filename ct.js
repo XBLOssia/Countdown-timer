@@ -1,4 +1,4 @@
-var myminutes = 1000;
+var mycount = 1000;
 var periodname = 'Loading';
 
     // Periods can be added or removed by adding or removing variables and child threads
@@ -102,12 +102,12 @@ var x = setInterval(function() {
 
 var y = setInterval(function() {
     
-    if (myminutes < 2) {
-        document.body.style.background = 'red';
+    if (mycount < 121) {
+        /*document.body.style.background = 'red';*/
         document.body.style.animationName = 'color';
     }
     else {
-        document.body.style.background = 'black';
+        /*document.body.style.background = 'rgba(0, 0, 0, 100)';*/
         document.body.style.animationName = 'none';
     }
 }, 2000);

@@ -1,6 +1,7 @@
 body {
-    background-color: black;
-    font-family: Helvetica, Arial, sans-serif;
+    background-image: url("./background.png");
+    box-shadow: inset 0px 0px 0px 1000px rgba(0,0,0,.5);
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
     color: antiquewhite;
     animation-name: none;
     animation-duration: 2s;
@@ -9,24 +10,26 @@ body {
 
 @keyframes color {
     0% {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
     }
     50% {
         background-color: red;
     }
     100% {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 }
 
 .parent {
+    /*background-color: rgba(0, 0, 0, 0.8);*/
     display: grid;
     grid-template-columns: 14vw 70vw 14vw;
     padding: 10px;
+    min-width: 800px;
 }
 
 .frame {
-    background-color: #333333;
+    background-color: rgba(60, 60, 60, 0.9);
     height: 50vh;
     border: 7px solid #FC5000;
     border-radius: 40px;
@@ -79,8 +82,8 @@ body {
 
 #clockdiv {
     grid-area: 2 / 1 / span 1 / span 3 ;
-    padding-top: 5vh;
-    font-size: 8vh;
+    padding-top: 3.5vh;
+    font-size: 10vh;
 }
 
 #clockdiv > div{
@@ -100,11 +103,31 @@ body {
 
 .footspace {
     grid-area: 3 / 1 / span 1 / span 3;
-    height: 10vh;
+    height: 4vh;
 }
 
 .footer {
     grid-area: 4 / 2 / span 1 / span 1;
     display: grid;
     grid-template-columns: 20vw 30vw ;
+}
+
+.footer img {
+    width: 15vw;
+    padding-top: -5vh;
+}
+
+.foottext {
+    grid-area: 1 / 2 / span 1 / span 2;
+    text-align: center;
+    font-size: 5vh;
+    padding-top: 5vh;
+    border: 3px solid #FC5000;
+    border-radius: 15px;
+    background-color: rgba(60, 60, 60, 0.9);
+}
+
+.bottom {
+    grid-area: 5 / 1 / span 1 / span 3;
+    height: 5vh;
 }

@@ -34,39 +34,39 @@ var x = setInterval(function() {
     //Evaluate current seconds in day with values derived above, subtract time left in day from timer value - looks like I did this backwards, which explains why I had to use math.abs
     //TODO: test and fix that
     if (mytime <= per1secs) {
-        var mycount = (per1secs - mytime);
+        mycount = (per1secs - mytime);
         periodname = per1[3];
     }
     else if (mytime <= per2secs) {
-        var mycount = (per2secs - mytime);
+        mycount = (per2secs - mytime);
         periodname = per2[3];
     }
     else if (mytime <= per3secs) {
-        var mycount = (per3secs - mytime);
+        mycount = (per3secs - mytime);
         periodname = per3[3];
     }
     else if (mytime <= per4secs) {
-        var mycount = (per4secs - mytime);
+        mycount = (per4secs - mytime);
         periodname = per4[3];
     }
     else if (mytime <= per5secs) {
-        var mycount = (per5secs - mytime);
+        mycount = (per5secs - mytime);
         periodname = per5[3];
     }
     else if (mytime <= per6secs) {
-        var mycount = (per6secs - mytime);
+        mycount = (per6secs - mytime);
         periodname = per6[3];
     }
     else if (mytime <= per7secs) {
-        var mycount = (per7secs - mytime);
+        mycount = (per7secs - mytime);
         periodname = per7[3];
     }
     else if (mytime <= per8secs) {
-        var mycount = (per8secs - mytime);
+        mycount = (per8secs - mytime);
         periodname = per8[3];
     }
     else {
-        var mycount = (donesecs - mytime);
+        mycount = (donesecs - mytime);
         periodname = 'Nothing';
     }
 
@@ -102,12 +102,12 @@ var x = setInterval(function() {
 
 var y = setInterval(function() {
     
-    if (mycount < 121) {
-        /*document.body.style.background = 'red';*/
+    if (mycount < 61) {
+        document.body.style.background = 'red';
         document.body.style.animationName = 'color';
     }
     else {
-        /*document.body.style.background = 'rgba(0, 0, 0, 100)';*/
+        document.body.style.background = '';
         document.body.style.animationName = 'none';
     }
 }, 2000);

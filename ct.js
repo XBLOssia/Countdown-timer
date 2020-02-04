@@ -140,7 +140,31 @@ var y = setInterval(function() {
     }
 }, 2000);
 
-
+//random phrase generator - add your own or remove them by adding an entry to the array below.
+function randoMsg(){
+    var randomesg = [   'Please make your way to class!',
+                        'Please make your way to class!',
+                        'Please make your way to class!',
+                        'Please make your way to class!',
+                        'Williston High School',
+                        'Williston High School',
+                        'Go Coyotes!',
+                        'Go Coyotes!',
+                        'Go Coyotes!',
+                        'What are you waiting for?',
+                        'A stitch in time saves nine.',
+                        'Time is of the essence.',
+                        'Time waits for no one!',
+                        'Procrastination is the thief of time.',
+                        'Time and tide wait for no one.',
+                        'No time like the present!',
+                        '"Time stays long enough for those who use it" - Leonardo Da Vinci',
+                        '"It has been my observation that most people get ahead during the time that others waste" - Henry Ford',
+                        '"To say \'I don\'t have time\' is to say \'I don\'t want to\'." - Lao Tzu',
+                    ];
+    var z = randomesg[Math.floor(Math.random() * randomesg.length)];
+    document.getElementById('foottext').innerHTML = z;
+};
 
 
 
